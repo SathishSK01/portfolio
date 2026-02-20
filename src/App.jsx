@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import profilePic from "./assets/profile_pic.jpg";
 import axios from "axios";
 import { FaWhatsapp } from "react-icons/fa";
+import handleDownload from "./resume.jsx"
 import "./App.css";
 
+
 export default function App() {
+
   const [whatsappNumber, setWhatsappNumber] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -63,27 +66,24 @@ export default function App() {
           <span className="text-blue-500">Node.js</span>
         </h1>
 
-        <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-8">
-          Backend Developer with 4+ years of experience building scalable,
-          high-performance backend systems across Banking, OTT/IPTV, and
-          Healthcare domains.
-        </p>
+      <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-8 leading-relaxed">
+      Backend Developer with 4+ years of experience building scalable and 
+      high-performance backend systems across Banking, OTT/IPTV, and Healthcare domains. 
+      Strong expertise in Node.js, Express.js, MongoDB, Kafka, and AWS cloud services. 
+      Proven ability to design microservices architectures, optimize API performance, 
+      resolve critical production issues, and deliver scalable solutions faster.
+      </p>
+<div className="flex flex-wrap justify-center gap-4">
 
-        <div className="space-x-4">
-          <a
-            href="#experience"
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg font-semibold transition"
-          >
-            View Experience
-          </a>
+  {/* Download Resume */}
+  <button
+  onClick={handleDownload}
+  className="px-6 py-3 border border-gray-700 hover:border-blue-500 rounded-lg transition shadow-lg"
+  >
+  Download Resume
+</button>
 
-          <a
-            href="#contact"
-            className="px-6 py-3 border border-gray-700 hover:border-blue-500 rounded-lg transition"
-          >
-            Contact Me
-          </a>
-        </div>
+</div>
       </section>
 
       {/* Skills */}
@@ -239,8 +239,6 @@ export default function App() {
 
   </div>
 </section>
-
-
       {/* WhatsApp Floating Button */}
       {!loading && whatsappNumber && (
         <div className="fixed bottom-6 right-6 z-50 group">
