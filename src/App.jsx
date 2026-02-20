@@ -1,13 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from "react";
 import profilePic from "./assets/profile_pic.jpg";
+import axios from "axios";
+import { FaWhatsapp } from "react-icons/fa";
 import "./App.css";
 
 export default function App() {
+  const [whatsappNumber, setWhatsappNumber] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/api/contact")
+      .then((res) => {
+        if (res?.data?.whatsappNumber) {
+          setWhatsappNumber(res.data.whatsappNumber);
+        } else {
+          setWhatsappNumber("8637486737"); // fallback
+        }
+      })
+      .catch((err) => {
+        console.error("Error fetching WhatsApp number:", err);
+        setWhatsappNumber("8637486737"); // fallback if API fails
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="bg-gray-950 text-white min-h-screen font-sans">
-
       {/* Navbar */}
       <nav className="fixed w-full bg-gray-900/80 backdrop-blur-md border-b border-gray-800 z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
@@ -31,8 +52,6 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="pt-40 pb-28 px-6 text-center bg-gradient-to-b from-gray-950 to-gray-900">
-
-        {/* Profile Image */}
         <img
           src={profilePic}
           alt="Sathish Kumar"
@@ -47,8 +66,7 @@ export default function App() {
         <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-8">
           Backend Developer with 4+ years of experience building scalable,
           high-performance backend systems across Banking, OTT/IPTV, and
-          Healthcare domains. Strong expertise in Node.js, Express.js,
-          MongoDB, Kafka, and AWS cloud services.
+          Healthcare domains.
         </p>
 
         <div className="space-x-4">
@@ -75,11 +93,10 @@ export default function App() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-
           {[
             {
               title: "Languages",
-              items: ["JavaScript", "TypeScript"]
+              items: ["JavaScript", "TypeScript"],
             },
             {
               title: "Backend Development",
@@ -87,8 +104,8 @@ export default function App() {
                 "Node.js",
                 "Express.js",
                 "RESTful APIs",
-                "Microservices Architecture"
-              ]
+                "Microservices Architecture",
+              ],
             },
             {
               title: "Databases",
@@ -97,32 +114,24 @@ export default function App() {
                 "MySQL",
                 "PostgreSQL",
                 "Elasticsearch",
-                "ClickHouse"
-              ]
+                "ClickHouse",
+              ],
             },
             {
               title: "Messaging & Streaming",
-              items: [
-                "Apache Kafka",
-                "Zookeeper"
-              ]
+              items: ["Apache Kafka", "Zookeeper"],
             },
             {
               title: "Cloud & DevOps",
               items: [
                 "AWS (EC2, ECS, Lambda, S3)",
                 "Docker",
-                "CI/CD Pipelines"
-              ]
+                "CI/CD Pipelines",
+              ],
             },
             {
               title: "Monitoring & Scheduling",
-              items: [
-                "Grafana",
-                "Kfuse",
-                "Airflow",
-                "Cron Jobs"
-              ]
+              items: ["Grafana", "Kfuse", "Airflow", "Cron Jobs"],
             },
             {
               title: "Tools",
@@ -132,9 +141,9 @@ export default function App() {
                 "Jira",
                 "Postman",
                 "WebStorm",
-                "Linux"
-              ]
-            }
+                "Linux",
+              ],
+            },
           ].map((section, index) => (
             <div
               key={index}
@@ -151,7 +160,6 @@ export default function App() {
               </ul>
             </div>
           ))}
-
         </div>
       </section>
 
@@ -162,8 +170,6 @@ export default function App() {
         </h2>
 
         <div className="max-w-5xl mx-auto space-y-16">
-
-          {/* Metaz Digital */}
           <div className="border-l-4 border-blue-500 pl-8">
             <h3 className="text-2xl font-semibold">
               Backend Developer
@@ -176,61 +182,33 @@ export default function App() {
             </p>
 
             <ul className="space-y-3 text-gray-300">
-              <li>• Designed scalable RESTful APIs for banking clients.</li>
-              <li>• Architected microservices-based backend systems.</li>
-              <li>• Optimized performance with indexing and query tuning.</li>
-              <li>• Implemented secure token-based authentication.</li>
-              <li>• Integrated third-party payment gateways.</li>
-              <li>• Deployed services on AWS with high availability.</li>
-              <li>• Provided production support and root cause analysis.</li>
+              <li>• Designed scalable RESTful APIs.</li>
+              <li>• Architected microservices-based systems.</li>
+              <li>• Optimized DB performance.</li>
+              <li>• Deployed services on AWS.</li>
             </ul>
           </div>
-
-          {/* Infynect Labs */}
-          <div className="border-l-4 border-blue-500 pl-8">
-            <h3 className="text-2xl font-semibold">
-              Backend Developer
-            </h3>
-            <p className="text-blue-400 font-medium">
-              Infynect Labs Pvt Ltd
-            </p>
-            <p className="text-gray-500 mb-6">
-              Sep 2022 – Oct 2023
-            </p>
-
-            <ul className="space-y-3 text-gray-300">
-              <li>• Built backend services for IPTV & OTT platforms.</li>
-              <li>• Designed APIs for subscription management.</li>
-              <li>• Integrated DRM, CDN, and SMS systems.</li>
-              <li>• Automated video pipelines using FFMPEG.</li>
-              <li>• Implemented CI/CD pipelines.</li>
-              <li>• Collaborated with cross-functional teams.</li>
-            </ul>
-          </div>
-
-          {/* Aquity Solutions */}
-          <div className="border-l-4 border-blue-500 pl-8">
-            <h3 className="text-2xl font-semibold">
-              Junior Software Engineer – Backend
-            </h3>
-            <p className="text-blue-400 font-medium">
-              Aquity Solutions Pvt Ltd
-            </p>
-            <p className="text-gray-500 mb-6">
-              Jun 2020 – Jan 2022
-            </p>
-
-            <ul className="space-y-3 text-gray-300">
-              <li>• Developed backend APIs for healthcare apps.</li>
-              <li>• Designed database schemas and optimized queries.</li>
-              <li>• Implemented data migration and reporting automation.</li>
-              <li>• Assisted in production monitoring and debugging.</li>
-              <li>• Reduced manual workload through backend automation.</li>
-            </ul>
-          </div>
-
         </div>
       </section>
+
+      {/* WhatsApp Floating Button */}
+      {!loading && whatsappNumber && (
+        <div className="fixed bottom-6 right-6 z-50 group">
+          <span className="absolute right-16 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition">
+            Chat with me
+          </span>
+
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=Hi%20Sathish%2C%20I%20visited%20your%20portfolio`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg transition transform hover:scale-110"
+          >
+            <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
+            <FaWhatsapp size={28} className="relative z-10" />
+          </a>
+        </div>
+      )}
 
       {/* Contact */}
       <section id="contact" className="py-24 px-6 text-center">
@@ -250,11 +228,9 @@ export default function App() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="text-center py-6 text-gray-600 border-t border-gray-800">
         © {new Date().getFullYear()} Sathish Kumar — Built with React & Tailwind
       </footer>
-
     </div>
   );
 }
