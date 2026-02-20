@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import profilePic from "./assets/profile_pic.jpg";
 import axios from "axios";
-import { FaWhatsapp } from "react-icons/fa";
-import handleDownload from "./resume.jsx"
+import { FaWhatsapp, FaLinkedin } from "react-icons/fa";
+import handleDownload from "./resume.jsx";
 import "./App.css";
 
 
@@ -271,8 +271,23 @@ export default function App() {
         <div className="space-y-3 text-gray-300">
           <p>Mobile: +91-8904500422</p>
           <p>Email: sathish09cs@gmail.com</p>
-          <p>GitHub: github.com/sathishSK01</p>
-          <p>LinkedIn: linkedin.com/in/sathish-kumar-g-033aa414a</p>
+          <a
+          href="https://github.com/sathishSK01"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 hover:text-blue-400 transition"
+          >
+          GitHub
+          </a>
+          <a
+          href="https://linkedin.com/in/sathish-kumar-g-033aa414a"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 hover:text-blue-400 transition"
+          >
+          <FaLinkedin size={20} />
+          LinkedIn
+          </a>
         </div>
       </section>
 
