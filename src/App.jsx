@@ -163,33 +163,83 @@ export default function App() {
         </div>
       </section>
 
-      {/* Experience */}
-      <section id="experience" className="py-24 px-6 bg-gray-950">
-        <h2 className="text-4xl font-bold text-center mb-16">
-          Professional Experience
-        </h2>
+    {/* Experience */}
+<section id="experience" className="py-24 px-6 bg-gray-950">
+  <h2 className="text-4xl font-bold text-center mb-16">
+    Professional Experience
+  </h2>
 
-        <div className="max-w-5xl mx-auto space-y-16">
-          <div className="border-l-4 border-blue-500 pl-8">
-            <h3 className="text-2xl font-semibold">
-              Backend Developer
-            </h3>
-            <p className="text-blue-400 font-medium">
-              Metaz Digital Pvt Ltd – Client: Vymo Technologies
-            </p>
-            <p className="text-gray-500 mb-6">
-              Jan 2024 – Jan 2026
-            </p>
+  <div className="max-w-5xl mx-auto space-y-16">
 
-            <ul className="space-y-3 text-gray-300">
-              <li>• Designed scalable RESTful APIs.</li>
-              <li>• Architected microservices-based systems.</li>
-              <li>• Optimized DB performance.</li>
-              <li>• Deployed services on AWS.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+    {/* Metaz Digital */}
+    <div className="border-l-4 border-blue-500 pl-8">
+      <h3 className="text-2xl font-semibold">
+        Backend Developer
+      </h3>
+      <p className="text-blue-400 font-medium">
+        Metaz Digital Pvt Ltd – Client: Vymo Technologies
+      </p>
+      <p className="text-gray-500 mb-6">
+        Jan 2024 – Jan 2026
+      </p>
+
+      <ul className="space-y-3 text-gray-300">
+        <li>• Designed and developed scalable RESTful APIs serving 100K+ daily users.</li>
+        <li>• Architected microservices using Node.js and Kafka improving system reliability by 30%.</li>
+        <li>• Optimized MongoDB & PostgreSQL queries reducing response time by 40%.</li>
+        <li>• Implemented JWT-based authentication and RBAC security.</li>
+        <li>• Integrated third-party payment gateways for banking workflows.</li>
+        <li>• Deployed applications on AWS (EC2, ECS, S3) with high availability setup.</li>
+        <li>• Led production issue debugging and reduced downtime incidents.</li>
+      </ul>
+    </div>
+
+    {/* Infynect Labs */}
+    <div className="border-l-4 border-blue-500 pl-8">
+      <h3 className="text-2xl font-semibold">
+        Backend Developer
+      </h3>
+      <p className="text-blue-400 font-medium">
+        Infynect Labs Pvt Ltd
+      </p>
+      <p className="text-gray-500 mb-6">
+        Sep 2022 – Oct 2023
+      </p>
+
+      <ul className="space-y-3 text-gray-300">
+        <li>• Built backend services for IPTV & OTT platforms supporting subscription lifecycle management.</li>
+        <li>• Designed scalable APIs handling video metadata and DRM integrations.</li>
+        <li>• Integrated CDN, SMS gateway, and payment systems.</li>
+        <li>• Automated video processing pipelines using FFMPEG.</li>
+        <li>• Implemented CI/CD pipelines reducing deployment time by 50%.</li>
+        <li>• Collaborated with frontend and DevOps teams for release cycles.</li>
+      </ul>
+    </div>
+
+    {/* Aquity Solutions */}
+    <div className="border-l-4 border-blue-500 pl-8">
+      <h3 className="text-2xl font-semibold">
+        Junior Software Engineer – Backend
+      </h3>
+      <p className="text-blue-400 font-medium">
+        Aquity Solutions Pvt Ltd
+      </p>
+      <p className="text-gray-500 mb-6">
+        Jun 2020 – Jan 2022
+      </p>
+
+      <ul className="space-y-3 text-gray-300">
+        <li>• Developed backend APIs for healthcare data processing systems.</li>
+        <li>• Designed relational database schemas and improved query performance.</li>
+        <li>• Automated reporting workflows reducing manual processing effort.</li>
+        <li>• Assisted in production monitoring and resolved critical bugs.</li>
+        <li>• Improved backend automation reducing operational workload.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
 
       {/* WhatsApp Floating Button */}
       {!loading && whatsappNumber && (
